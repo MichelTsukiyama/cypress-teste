@@ -3,21 +3,12 @@
   "version": "1.0.0",
   "description": "teste com cypress",
   "main": "cypress.config.js",
-  "dependencies": {
-    "cypress": "^13.7.3"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/MichelTsukiyama/cypress-teste.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/MichelTsukiyama/cypress-teste/issues"
-  },
-  "homepage": "https://github.com/MichelTsukiyama/cypress-teste#readme"
+  "devDependencies": {
+    "cypress": "^13.7.3"
+  }
 }
