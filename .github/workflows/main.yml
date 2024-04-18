@@ -16,7 +16,10 @@ jobs:
           wait-on-timeout: 180
           browser: chrome
           env: CODE=${{secrets.CODE}}
-          
+
+      - name: Merge results
+        run: npm run postreport
+        
       - name: Move test results
         run: mv cypress/results/combined-report.xml junit-reports/
 
