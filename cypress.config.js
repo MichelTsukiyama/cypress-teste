@@ -9,9 +9,8 @@ module.exports = defineConfig({
   env:{
     CODE: "${{ secrets.CODE }}"
   },
-  reporter: "junit",
-  reporterOptions:{
-    mochaFile: "results/my-test-output-[hash].xml",
-    toConsole: true
-  }
+ reporter: 'cypress-multi-reporters',
+  reporterOptions: {
+    configFile: 'reporter-config.js',
+  },
 });
