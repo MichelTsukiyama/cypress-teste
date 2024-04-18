@@ -20,25 +20,24 @@ jobs:
       - name: Merge results
         run: npm run postreport
         
-      - name: Move test results
+      #- name: Move test results
         #run: mv cypress/results/combined-report.xml $GITHUB_WORKSPACE
-        run: mv cypress/results/ $GITHUB_WORKSPACE
+        #run: mv cypress/results/ $GITHUB_WORKSPACE
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifacts@v4
         with:
           name: cypress-reports
-          path: $GITHUB_WORKSPACE
+          path: cypress/results/combined-report.xml
 
       - uses: actions/upload-artifact@v4
-        # add the line below to store screenshots only on failures
         # if: failure()
         with:
           name: cypress-screenshots
           path: cypress/screenshots
-          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
+          if-no-files-found: ignore
+          
       - uses: actions/upload-artifact@v4
         with:
           name: cypress-videos
           path: cypress/videos
-          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
+          if-no-files-found: ignore
