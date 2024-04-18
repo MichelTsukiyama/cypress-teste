@@ -5,11 +5,18 @@
   "main": "cypress.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "combine:reports":"jrm results/combined-report.xml \"results/*.xml\""
+    "delete:reports": "rm cypress/results/* || true",
+    "combine:reports": "jrm cypress/results/combined-report.xml \"cypress/results/*.xml\"",
+    "prereport": "npm run delete:reports",
+    "report": "cypress run --reporter cypress-multi-reporters --reporter-options configFile=reporter-config.js",
+    "postreport": "npm run combine:reports"   
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.7.3"
+    "cypress": "^13.7.3",
+    "cypress-multi-reporters": "^1.6.4",
+    "junit-report-merger": "^6.0.3",
+    "mocha-junit-reporter": "^2.2.1"
   }
 }
