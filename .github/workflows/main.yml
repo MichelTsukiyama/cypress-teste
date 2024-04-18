@@ -16,8 +16,12 @@ jobs:
           wait-on-timeout: 180
           browser: chrome
           env: CODE=${{secrets.CODE}}
-      - name: Upload test results
+          
+      - name: Move test results
+        run: mv cypress/reports/*junit*.xml junit-reports/
+
+      - name: Upload JUnit test results
         uses: actions/upload-artifact@v2
         with:
-          name: test-results
-          path: cypress/reports
+            name: junit-test-results
+            path: junit-reports/
