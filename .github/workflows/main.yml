@@ -21,10 +21,10 @@ jobs:
         run: npm run postreport
         
       - name: Move test results
-        run: mv cypress/results/combined-report.xml junit-reports/
+        run: mv cypress/results/combined-report.xml $GITHUB_WORKSPACE
 
-      - name: Upload JUnit test results
+      - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-            name: junit-test-results
-            path: junit-reports/
+          name: cypress-reports
+          path: $GITHUB_WORKSPACE/combined-report.xml
