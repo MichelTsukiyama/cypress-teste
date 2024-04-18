@@ -18,7 +18,7 @@ jobs:
           env: CODE=${{secrets.CODE}}
           
       - name: Move test results
-        run: mv results/combined-report.xml junit-reports/
+        run: mv cypress/results/combined-report.xml junit-reports/
 
       - name: Upload JUnit test results
         uses: actions/upload-artifact@v2
