@@ -8,5 +8,10 @@ module.exports = defineConfig({
   },
   env:{
     CODE: "${{ secrets.CODE }}"
+  },
+  reporter: "junit",
+  reporterOptions:{
+    mochaFile: "results/my-test-output-[hash].xml",
+    toConsole: true
   }
 });
